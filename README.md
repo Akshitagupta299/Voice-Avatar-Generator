@@ -1,6 +1,6 @@
 # Voice-Avatar Generator 🎙️🧑‍💻
 
-The **Voice-Avatar Generator** is an AI-powered tool that takes a user's voice input and generates a realistic talking avatar with lip-sync and facial animation. It’s ideal for creating virtual assistants, educational content, or AI-based characters.
+The **Voice-Avatar Generator** is an AI-based tool that creates personalized avatar images from user input, either via written prompts or voice. Users can choose from different styles (e.g., anime, Pixar, Ghibli). The current focus is on generating static images, with customizable appearances based on selected styles.
 
 ---
 
