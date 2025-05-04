@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice Avatar Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 { text-align: center; }
+    label { display: block; margin-top: 15px; }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    #avatar-img {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 300px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Voice Avatar Generator</h2>
+    <form id="avatar-form" enctype="multipart/form-data">
+      <label for="prompt">Text Prompt:</label>
+      <input type="text" id="prompt" name="prompt" placeholder="Enter description...">
+
+      <label for="audio">OR Upload Audio File:</label>
+      <input type="file" id="audio" name="audio" accept="audio/*">
+
+      <label for="style">Choose Style:</label>
+      <select id="style" name="style">
+        <option value="anime">Anime</option>
+        <option value="cartoon">Cartoon</option>
+        <option value="sketch">Sketch</option>
+        <option value="pixar">Pixar</option>
+        <option value="ghibli">Ghibli</option>
+        <option value="realistic">Realistic</option>
+      </select>
+
+      <button type="submit">Generate Avatar</button>
+    </form>
+
+    <img id="avatar-img" src="" alt="Generated Avatar" hidden>
+  </div>
+
+  <script>
+    const form = document.getElementById('avatar-form');
+    const avatarImg = document.getElementById('avatar-img');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      const response = await fetch('/generate-avatar', {
+        method: 'POST',
+        body: formData
+      });
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+
+      avatarImg.src = url;
+      avatarImg.hidden = false;
+    });
+  </script>
+</body>
+</html>
