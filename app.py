@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, render_template, send_file
 import os
 import whisper
 from diffusers import StableDiffusionPipeline
@@ -31,6 +31,9 @@ pipe = StableDiffusionPipeline.from_pretrained(
     torch_dtype=torch.float16 if device == "cuda" else torch.float32
 ).to(device)
 
+@app.route('/')
+def index():
+    return render_template('index.html') 
 
 @app.route('/generate-avatar', methods=['POST'])
 def generate_avatar():
