@@ -1,15 +1,17 @@
 # Voice-Avatar Generator 🎙️🧑‍💻
 
-The **Voice-Avatar Generator** is an AI-based tool that creates personalized avatar images from user input, either via written prompts or voice. Users can choose from different styles (e.g., anime, Pixar, Ghibli). The current focus is on generating static images, with customizable appearances based on selected styles.
+Transform your **voice or text prompts into custom avatars** in different artistic styles such as Anime, Pixar, or Ghibli — all from a sleek and interactive web interface!
 
 ---
 
-## 🚀 Features
+## 🔥 Features
 
-- Converts voice or audio input into a lip-synced avatar
-- Generates realistic facial expressions
-- Supports custom avatars or default templates
-- Can be integrated into web or desktop applications
+- 🎤 **Voice Input**: Upload an audio file and automatically convert it into a descriptive text using OpenAI Whisper.
+- ✍️ **Text Prompt**: Manually enter any custom prompt to describe the avatar.
+- 🎨 **Choose Style**: Select from multiple artistic styles like Anime, Pixar, and more.
+- 🧠 **AI Avatar Generation**: Uses Stable Diffusion to generate avatars from text.
+- 💾 **Download Button**: Save your generated avatar easily.
+- 🌐 **User-Friendly UI**: Built using Flask and Bootstrap for smooth interaction..
 
 ---
 
@@ -38,8 +40,34 @@ c. Display or save the output video
 
 ---
 
+🛠️ Tech Stack
+-> Frontend: HTML, CSS, JavaScript, Bootstrap
+-> Backend: Flask (Python)
+-> Models:
+- OpenAI Whisper – for speech-to-text conversion
+- Stable Diffusion – for avatar generation
+
+---
+
+📌 To-Do / Future Enhancements
+- 🗣️ Add lip-sync animation (mouth movement)
+- 🌍 Add multilingual support for voice input
+- 🧵 Allow avatar customization (hairstyle, accessories)
+- 🎬 Support for short animated avatar clips
+
+---
+
+🤝 Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
+
 ## 📄 License
 This project is open-source and available under the MIT License.
+
+🙌 Acknowledgements
+- OpenAI for Whisper
+- Hugging Face for Stable Diffusion pipeline
+- FFmpeg for media processing
+- Flask for backend support
 
 ---
 
