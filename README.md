@@ -80,7 +80,8 @@ AI Models & Files (Whisper, Diffusers, etc.)
 Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
 
 ## 📄 License
-This project is open-source and available under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](./LICENSE).  
+© 2025 Akshita Gupta
 
 ## 🙌 Acknowledgements
 - OpenAI for Whisper
