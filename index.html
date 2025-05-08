@@ -1,88 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Voice Avatar Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f0f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #c3ecb2, #7dd0f0);
+      animation: backgroundMove 10s ease infinite alternate;
+      background-size: 400% 400%;
     }
+
+    @keyframes backgroundMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
     .container {
+      max-width: 400px;
+      margin: 60px auto;
       background: white;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      text-align: center;
     }
-    h2 { text-align: center; }
-    label { display: block; margin-top: 15px; }
-    input, select, button {
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    select {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 6px;
       border: 1px solid #ccc;
     }
-    #avatar-img {
-      margin-top: 20px;
+
+    button[type="submit"] {
+      background-color: #4285f4;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover{
+      background-color: #5ca3ff;
+      color: #1e1e1e;
+    }
+
+    .download-button {
+      display: inline-block;
+      margin-top: 15px;
+      background-color: #28a745;
+      color: white;
+      padding: 10px 16px;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    #download-button:hover {
+      background-color: #357bd8;
+    }
+
+    .avatar-image {
       width: 100%;
       max-width: 300px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+
+    .top-bar {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+
+    #toggleModeBtn {
+      background-color: #000000;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    .dark-mode .container {
+      background-color: #1e1e1e;
+    }
+
+    .dark-mode input,
+    .dark-mode select {
+      background-color: #333;
+      color: white;
+      border: 1px solid #555;
+    }
+
+    .dark-mode #toggleModeBtn {
+      background-color: #444;
+      color: white;
+    }
+
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #4285f4;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .success { color: green; }
+    .error { color: red; }
   </style>
 </head>
 <body>
+  <!-- Toggle Button in Top-Right -->
+  <div class="top-bar">
+    <button id="toggleModeBtn">Toggle Light/Dark Mode</button>
+  </div>
+
+  <div id="loading-spinner" style="display: none; text-align: center; margin-top: 15px;">
+    <div class="spinner"></div>
+    <p>Generating your avatar...</p>
+  </div>  
+
   <div class="container">
-    <h2>Voice Avatar Generator</h2>
-    <form id="avatar-form" enctype="multipart/form-data">
+    <h1>🎙️Voice Avatar Generator</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
       <label for="prompt">Text Prompt:</label>
-      <input type="text" id="prompt" name="prompt" placeholder="Enter description...">
+      <input type="text" name="prompt" placeholder="e.g., calm anime girl with blue background" />
 
       <label for="audio">OR Upload Audio File:</label>
-      <input type="file" id="audio" name="audio" accept="audio/*">
+      <input type="file" name="audio" />
 
       <label for="style">Choose Style:</label>
-      <select id="style" name="style">
+      <select name="style">
         <option value="anime">Anime</option>
-        <option value="cartoon">Cartoon</option>
-        <option value="sketch">Sketch</option>
-        <option value="pixar">Pixar</option>
+        <option value="Pixar">Pixar</option>
         <option value="ghibli">Ghibli</option>
         <option value="realistic">Realistic</option>
+        <option value="cartoon">Cartoon</option>
+        <option value="sketch">Sketch</option>
       </select>
 
       <button type="submit">Generate Avatar</button>
-    </form>
+      <p id="loading-message" style="display:none; text-align:center; color:#333; margin-top:10px;">
+        Generating avatar... please wait ⏳
+      </p>
+    </form>  
 
-    <img id="avatar-img" src="" alt="Generated Avatar" hidden>
+    {% if image_url %}
+    <img id="avatar-image" class="avatar-image" src="{{ image_url }}" />
+    <p class="message success">🎉 Avatar generated successfully! Click the button below to download.</p>  
+    <button type="button" id="download-button" class="btn-primary" onclick="downloadAvatar('{{ image_url }}')">
+      Download Avatar
+    </button>   
+    {% endif %}
+
+    {% if error %}
+    <p class="message error">⚠️ {{ error }}</p>
+    {% endif %}
   </div>
 
   <script>
-    const form = document.getElementById('avatar-form');
-    const avatarImg = document.getElementById('avatar-img');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-
-      const response = await fetch('/generate-avatar', {
-        method: 'POST',
-        body: formData
-      });
-
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-
-      avatarImg.src = url;
-      avatarImg.hidden = false;
+    // Toggle dark/light theme
+    document.getElementById("toggleModeBtn").addEventListener("click", function () {
+      document.body.classList.toggle("dark-mode");
     });
+
+    const form = document.querySelector('form');
+    const spinner = document.getElementById('loading-spinner');
+    const downloadButton = document.getElementById('download-button');
+    const avatarImage = document.getElementById('avatar-image');
+    const loadingMessage = document.getElementById('loading-message');
+
+    function downloadAvatar(url) {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'avatar.png'; // Customize filename if needed
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    }
+
+    form.addEventListener('submit', function () {
+      spinner.style.display = 'block';
+      loadingMessage.style.display = 'block';
+      if (avatarImage) avatarImage.style.display = 'none';
+      if (downloadButton) downloadButton.style.display = 'none';
+    });
+
+    window.onload = function () {
+      loadingMessage.style.display = 'none';
+    };
   </script>
 </body>
 </html>
