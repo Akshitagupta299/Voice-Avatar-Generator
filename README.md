@@ -32,12 +32,12 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-### 3. Install Dependencies
+### 3️⃣ Install Dependencies
 ``` bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the App
+### 4️⃣ Run the App
 ``` bash
 python app.py
 ```
@@ -61,7 +61,7 @@ The application will be available at `http://127.0.0.1:5000/`.
 Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
 
 ## 📄 License
-This project is open-source and available under the MIT License.
+This project is open-source and available under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙌 Acknowledgements
 - OpenAI for Whisper
