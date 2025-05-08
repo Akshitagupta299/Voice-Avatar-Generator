@@ -40,30 +40,30 @@ c. Display or save the output video
 
 ---
 
-🛠️ Tech Stack
--> Frontend: HTML, CSS, JavaScript, Bootstrap
--> Backend: Flask (Python)
--> Models:
-- OpenAI Whisper – for speech-to-text conversion
-- Stable Diffusion – for avatar generation
+## 🛠️ Tech Stack
+### Frontend: HTML, CSS, JavaScript, Bootstrap
+### Backend: Flask (Python)
+### Models:
+a. OpenAI Whisper – for speech-to-text conversion
+b. Stable Diffusion – for avatar generation
 
 ---
 
-📌 To-Do / Future Enhancements
-- 🗣️ Add lip-sync animation (mouth movement)
-- 🌍 Add multilingual support for voice input
-- 🧵 Allow avatar customization (hairstyle, accessories)
-- 🎬 Support for short animated avatar clips
+## 📌 To-Do / Future Enhancements
+a. 🗣️ Add lip-sync animation (mouth movement)
+b. 🌍 Add multilingual support for voice input
+c. 🧵 Allow avatar customization (hairstyle, accessories)
+d. 🎬 Support for short animated avatar clips
 
 ---
 
-🤝 Contributing
+## 🤝 Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
 
 ## 📄 License
 This project is open-source and available under the MIT License.
 
-🙌 Acknowledgements
+## 🙌 Acknowledgements
 - OpenAI for Whisper
 - Hugging Face for Stable Diffusion pipeline
 - FFmpeg for media processing
