@@ -1,4 +1,5 @@
 # Voice-Avatar Generator 🎙️🧑‍💻
+![Voice-Avatar Generator](https://img.shields.io/badge/Language-Python-blue.svg) ![Status](https://img.shields.io/badge/Status-Active-green.svg) ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 Transform your **voice or text prompts into custom avatars** in different artistic styles such as Anime, Pixar, or Ghibli — all from a sleek and interactive web interface!
 
