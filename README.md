@@ -43,6 +43,24 @@ python app.py
 ```
 The application will be available at `http://127.0.0.1:5000/`.
 
+## 📂Project WorkFlow
+```
+User Interface (Web Browser)
+│
+▼
+Flask Backend Server (Python)
+├── Audio/Text Input Handler
+├── Whisper Speech-to-Text Module
+├── Prompt Preprocessor (with Style Modifiers)
+├── Stable Diffusion Image Generator
+├── Response Handler
+└── Image Renderer & Download Support
+│
+▼
+AI Models & Files (Whisper, Diffusers, etc.)
+
+```
+
 ## 🛠️ Tech Stack
 - **Frontend:** HTML, CSS, JavaScript, Bootstrap
 - **Backend:** Flask (Python)
