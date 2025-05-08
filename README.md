@@ -50,10 +50,10 @@ c. Display or save the output video
 ---
 
 ## 📌 To-Do / Future Enhancements
-### a. 🗣️ Add lip-sync animation (mouth movement)
-### b. 🌍 Add multilingual support for voice input
-### c. 🧵 Allow avatar customization (hairstyle, accessories)
-### d. 🎬 Support for short animated avatar clips
+- 🗣️ Add lip-sync animation (mouth movement)
+- 🌍 Add multilingual support for voice input
+- 🧵 Allow avatar customization (hairstyle, accessories)
+- 🎬 Support for short animated avatar clips
 
 ---
 
